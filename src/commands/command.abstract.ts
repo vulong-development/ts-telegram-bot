@@ -1,4 +1,4 @@
-import { IBotContext } from "../../context/context.interface";
+import { IBotContext } from "../context/context.interface";
 import { Telegraf } from "telegraf";
 
 export abstract class Command {

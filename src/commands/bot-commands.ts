@@ -1,6 +1,6 @@
 import { Telegraf } from "telegraf";
-import { IBotContext } from "../../context/context.interface";
-import { Command } from "./absract-command";
+import { IBotContext } from "../context/context.interface";
+import { Command } from "./command.abstract";
 
 export class BotCommands extends Command {
   constructor(bot: Telegraf<IBotContext>) {

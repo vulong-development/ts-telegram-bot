@@ -1,9 +1,6 @@
 import { Telegraf } from "telegraf";
-import { IBotContext } from "../../context/context.interface";
-import { Command } from "./absract-command";
-import TelegramServiceModel from "../../../../models/telegram-service-model";
-
-const telegramModel = new TelegramServiceModel();
+import { IBotContext } from "../context/context.interface";
+import { Command } from "./command.abstract";
 
 export class StartCommand extends Command {
   constructor(bot: Telegraf<IBotContext>) {
@@ -12,6 +9,7 @@ export class StartCommand extends Command {
 
   handle(): void {
     this.bot.start(async (ctx) => {
+      console.log(ctx)
       const userData = {
         userID: ctx.update.message.from.id,
         firstName: ctx.update.message.from.first_name || 'unknown',
@@ -24,7 +22,7 @@ export class StartCommand extends Command {
       //   console.log(error)
       // }
 
-      await ctx.reply(`Здравствуйте, ${userData.firstName}. Вас приветствует бот службы поддержки CRM.`)
+      await ctx.reply(`Здравствуйте, ${userData.firstName}. Вас приветствует бот.`)
     })
   }
 
